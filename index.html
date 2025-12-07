@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Class 12 - Resource Hub</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #0ea5e9; /* Sky Blue for Physics */
+            --accent-hover: #0284c7;
+            --youtube: #ef4444;
+            --drive: #10b981;
+            --whatsapp: #22c55e;
+            --badge-bg: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        header {
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Search Bar */
+        .search-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: 2px solid var(--card-bg);
+            background-color: var(--card-bg);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.2);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin: 4rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-count {
+            font-size: 0.85rem;
+            background: var(--badge-bg);
+            padding: 2px 10px;
+            border-radius: 12px;
+            color: var(--text-secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background-color: #263346;
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-type-strip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .type-youtube .card-type-strip { background-color: var(--youtube); }
+        .type-drive .card-type-strip { background-color: var(--drive); }
+        .type-whatsapp .card-type-strip { background-color: var(--whatsapp); }
+
+        .card-content {
+            margin-bottom: 1rem;
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-family: monospace;
+            background: rgba(14, 165, 233, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-teacher {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background-color: var(--badge-bg);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .open-icon {
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .card:hover .open-icon { opacity: 1; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Physics Resource Hub</h1>
+        <p class="subtitle">Class 12 NEB | U-ThinkCrazy</p>
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Search topics (e.g., 'Optics', 'Suraj Sir', 'Modern Physics')...">
+        </div>
+    </header>
+
+    <div id="app" class="main-container"></div>
+
+    <script>
+        const data = [
+            {
+                section: "🌟 Sudarshan Batch (Aug - Nov)",
+                type: "youtube",
+                items: [
+                    { title: "Jul 30 | Rotational Dynamics | Suraj Sir", url: "https://youtu.be/UgP_VORB_YE" },
+                    { title: "Jul 31 | Rotational Dynamics | Suraj Sir", url: "https://youtu.be/3XZV1MMFg8E" },
+                    { title: "Aug 03 | Rotational Dynamics | Suraj Sir", url: "https://youtu.be/jnRqZVRlygo" },
+                    { title: "Aug 06 | Rotational Dynamics | Suraj Sir", url: "https://youtu.be/DV3k80uFmtw" },
+                    { title: "Aug 07 | Simple Harmonic Motion | Suraj Sir", url: "https://youtu.be/0mIA6YgEC3o" },
+                    { title: "Aug 08 | Simple Harmonic Motion | Suraj Sir", url: "https://youtu.be/IcQJu93FFkM" },
+                    { title: "Aug 10 | Simple Harmonic Motion | Suraj Sir", url: "https://youtu.be/c69Gb-wFbDM" },
+                    { title: "Aug 11 | Fluid Dynamics & Statics | Suraj Sir", url: "https://youtu.be/g6dJXrnsxRo" },
+                    { title: "Aug 13 | Fluid Statics | Surface Tension | Suraj Sir", url: "https://youtu.be/tebY0q9Qm10" },
+                    { title: "Aug 14 | Fluid Statics & Surface Tension | Suraj Sir", url: "https://youtu.be/MepD2W1Rlkk" },
+                    { title: "Aug 17 | Fluid Statics & Surface Tension | Suraj Sir", url: "https://youtu.be/YrpaPZ4Hc6E" },
+                    { title: "Aug 18 | Fluid Statics & Surface Tension | Suraj Sir", url: "https://youtu.be/5Z_zegFj5Pk" },
+                    { title: "Aug 19 | Fluid Statics & Surface Tension | Suraj Sir", url: "https://youtu.be/x_gFhAlcd1k" },
+                    { title: "Aug 20 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/2FxToRx6C-U" },
+                    { title: "Sep 02 | Electricity | Electrical Circuit | Suraj Sir", url: "https://youtu.be/lF_4DCTd0No" },
+                    { title: "Sep 04 | Electricity | Electrical Circuit | Suraj Sir", url: "https://youtu.be/1v3Im8sDJo8" },
+                    { title: "Sep 06 | Electricity | Electrical Circuit | Suraj Sir", url: "https://youtu.be/fVbOKw5iKuY" },
+                    { title: "Sep 07 | Electricity | Electrical Circuit | Suraj Sir", url: "https://youtu.be/jf5gU6zsPH4" },
+                    { title: "Sep 11 | Electricity | Suraj Sir", url: "https://youtu.be/E_qaasltfGE" },
+                    { title: "Sep 12 | Electricity | Suraj Sir", url: "https://youtu.be/GVfReybxsX4" },
+                    { title: "Sep 15 | Electricity | Suraj Sir", url: "https://youtu.be/397AU-tW04I" },
+                    { title: "Sep 21 | Wave and Optics | Sumesh Sir", url: "https://youtu.be/1ceEb02zN8M" },
+                    { title: "Oct 07 | Wave Motion | Lec 02 | Sumesh Sir", url: "https://youtu.be/5aB_80FMiAo" },
+                    { title: "Oct 08 | Wave Motion | Lec 03 | Sumesh Sir", url: "https://youtu.be/OkchcDpju-E" },
+                    { title: "Oct 09 | Concept Note of Wave Motion | Lec 04 | Sumesh Sir", url: "https://youtu.be/Nua2IwVsiGs" },
+                    { title: "Oct 10 | Wave Motion | Lec 05 | Sumesh Sir", url: "https://youtu.be/aS756TOF0Os" },
+                    { title: "Oct 12 | Wave and Motion | Lec 06 | Sumesh Sir", url: "https://youtu.be/7Er468FQs0Q" },
+                    { title: "Oct 13 | Wave and Motion | MCQ | Lec 07 | Sumesh Sir", url: "https://youtu.be/EcXa9VTpKNM" },
+                    { title: "Oct 14 | Wave | Mechanical Wave | Lec 08 | Sumesh Sir", url: "https://youtu.be/cU0P8sL97VU" },
+                    { title: "Oct 15 | Wave and Motion | Lec 09 | Sumesh Sir", url: "https://youtu.be/H4aNH3ZvN6M" },
+                    { title: "Oct 16 | Wave & Motion | Mechanical Wave | Lec 10 | Sumesh Sir", url: "https://youtu.be/bmAsM5YFMQI" },
+                    { title: "Oct 17 | Wave & Motion | Mechanical Wave | Lec 11 | Sumesh Sir", url: "https://youtu.be/A22FZzScmW0" },
+                    { title: "Oct 21 | Velocity of Sound | Sumesh Sir", url: "https://youtu.be/we6IFgjOcBQ" },
+                    { title: "Oct 22 | Velocity of Sound | Sumesh Sir", url: "https://youtu.be/uhdmPKoTV8k" },
+                    { title: "Oct 24 | Physics Discussion Only", url: "https://youtu.be/aIpgFcvNVJc" },
+                    { title: "Oct 29 | Velocity of Sound by Dimension Method | Sumesh Sir", url: "https://youtu.be/ZwxjHPSmzDE" },
+                    { title: "Oct 30 | Organ Pipe | Lec 01 | Sumesh Sir", url: "https://youtu.be/KY7D481GlGY" },
+                    { title: "Oct 31 | Open Organ Pipe | Sumesh Sir", url: "https://youtu.be/IZnlXNtqEqY" },
+                    { title: "Nov 02 | Wave in Pipe | Numericals | Sumesh Sir", url: "https://youtu.be/WmD70BoKMj0" },
+                    { title: "Nov 03 | Wave in Pipe | Numericals | Sumesh Sir", url: "https://youtu.be/8r1ddwNoIIk" },
+                    { title: "Nov 04 | Wave in Pipe & String | Sumesh Sir", url: "https://youtu.be/If2JFs24azs" },
+                    { title: "Nov 05 | Derivation String | Sumesh Sir", url: "https://youtu.be/6Jy_Pp6o0J4" },
+                    { title: "Nov 06 | Derivation String | Sumesh Sir", url: "https://youtu.be/yyoobAGVC9c" },
+                    { title: "Nov 07 | Waves in Pipes & String | Numericals | Sumesh Sir", url: "https://youtu.be/Wt6jals7ub8" },
+                    { title: "Nov 09 | Waves in Pipes & String | MCQ | Sumesh Sir", url: "https://youtu.be/p8wfOrP8o98" },
+                    { title: "Nov 10 | Waves in Pipes & String | Short Qs | Sumesh Sir", url: "https://youtu.be/9ADns0K_gfs" },
+                    { title: "Nov 11 | Acoustic Phenomena | Doppler Effect | Sumesh Sir", url: "https://youtu.be/UQ58WHDrPsc" },
+                    { title: "Nov 12 | Acoustic Phenomena | Doppler Effect | Sumesh Sir", url: "https://youtu.be/VyUr0f-W0Us" },
+                    { title: "Nov 13 | Acoustic Phenomena | Doppler Effect | Sumesh Sir", url: "https://youtu.be/OhTNLlT2rfo" },
+                    { title: "Nov 14 | Acoustic Phenomena | Doppler Effect | Numericals | Sumesh Sir", url: "https://youtu.be/8ZC5rYEf_6g" },
+                    { title: "Nov 15 | Photon Calculations & Scientific Formulas | Sumesh Sir", url: "https://youtu.be/pzYD3i-VGUU" },
+                    { title: "Nov 16 | Acoustic Phenomena | Intensity of Sound | Sumesh Sir", url: "https://youtu.be/ATPBJbEAICk" },
+                    { title: "Nov 17 | Acoustic Phenomena | Intensity of Sound | Sumesh Sir", url: "https://youtu.be/Phx-o89WKrQ" },
+                    { title: "Nov 18 | Acoustic Phenomena | Beat | Sumesh Sir", url: "https://youtu.be/BuweixqOeKg" },
+                    { title: "Nov 19 | Acoustic Phenomena | Beat | Sumesh Sir", url: "https://youtu.be/vUZ91KbsjqE" },
+                    { title: "Nov 20 | Acoustic Phenomena | Sound Intensity | Sumesh Sir", url: "https://youtu.be/oaDRclITpr0" },
+                    { title: "Nov 23 | Fluid Statics | Viscosity | Sumesh Sir", url: "https://youtu.be/pSi8gWYoQe0" },
+                    { title: "Nov 24 | Fluid Statics | Viscosity & Terminal Velocity | Sumesh Sir", url: "https://youtu.be/FO01DOqv2YA" },
+                    { title: "Nov 26 | Fluid Statics | Viscosity & Terminal Velocity | Numericals", url: "https://youtu.be/CN7VUqvBXd8" },
+                    { title: "Nov 27 | Fluid Statics | Numericals | Sumesh Sir", url: "https://youtu.be/_6Yf1ebOA5w" },
+                    { title: "Nov 30 | Fluid Statics | Derivations | Sumesh Sir", url: "https://youtu.be/3C5lG2AWywA" }
+                ]
+            },
+            {
+                section: "🟥 Topper A+ Batch (Jan - Apr)",
+                type: "youtube",
+                items: [
+                    { title: "Jan-07 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/1hHv5WHj-cQ?si=k_s-4rpSdm2icWox" },
+                    { title: "Jan-08 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/KzWGA_t-iXw?si=61cZ4Uoqq5Y2Aw0w" },
+                    { title: "Jan-09 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/3MVpKaRYISs?si=tVjLcHmvt48yCzQB" },
+                    { title: "Jan-10 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/3Ild7qo1-c4?si=7GoqnPRa37UHBa1z" },
+                    { title: "Jan-12 | Electrical Circuit QAD | Suraj Sir", url: "https://youtu.be/8Nt5EKF4wc8?si=oMA9ytc2MRc6d2bL" },
+                    { title: "Jan-13 | Electrical Circuit | Suraj Sir", url: "https://youtu.be/6_548QGn5bM" },
+                    { title: "Jan-14 | Electricity & Magnetism | Sanjay Sir", url: "https://youtu.be/jfkwxcuKsi4?si=Ca9AgL5tKwWLxSYo" },
+                    { title: "Jan-15 | Electricity & Magnetism | Sanjay Sir", url: "https://youtu.be/Ic4XHH97qXU?si=_az2MAC2fGtz6XJQ" },
+                    { title: "Jan-16 | Wave in Pipes and String | Suraj Sir", url: "https://youtu.be/q7_C-DPaQkU?si=Pmxpzc9sC0w2duiA" },
+                    { title: "Jan-18 | Wave in Pipes and String | Suraj Sir", url: "https://youtu.be/2FbKqKviS00?si=F61laXOev9OjPWGk" },
+                    { title: "Jan-19 | Electricity & Magnetism | Sanjay Sir", url: "https://youtu.be/AWEc6DbaImo?si=oVhaRdSsVsNjO8T6" },
+                    { title: "Jan-20 | Electricity & Magnetism | Sanjay Sir", url: "https://youtu.be/eUKA3crC9VY?si=epD34lOUWnNLM6m_" },
+                    { title: "Jan-22 | Semi Conductor | Suraj Sir", url: "https://youtu.be/I-9mCi_u7so?si=5DJvbaZMEZXCLtQA" },
+                    { title: "Jan-23 | Semi Conductor | Suraj Sir", url: "https://youtu.be/c79XzBTGGQM?si=gQZtUfU2IMl0f5mn" },
+                    { title: "Jan-24 | Semi-Conductor | Suraj Sir", url: "https://youtu.be/UDHAwpqJcY0?si=NCkGwsCd0uPSPTHr" },
+                    { title: "Jan-26 | Semi Conductor | Suraj Sir", url: "https://youtu.be/iy9rQjSM3Cs?si=Ny_MLOZja4jatHHd" },
+                    { title: "Jan-27 | Semi Conductor | Suraj Sir", url: "https://youtu.be/73QfyGEO-7c?si=gHjSibL0ia0CiRQ0" },
+                    { title: "Jan-29 | Semi Conductor | Suraj Sir", url: "https://youtu.be/bRQc4jZt4vM?si=8tpHhcgtFK3HPJ6i" },
+                    { title: "Jan-30 | Magnetism | Sanjay Sir", url: "https://youtu.be/9H0LON3auzw?si=yV7ZEbYBDLlo8zIV" },
+                    { title: "Jan-31 | Magnetism | Sanjay Sir", url: "https://youtu.be/F7lWuORC0HA?si=WnJGCN0SZWgXtkMd" },
+                    { title: "Feb-01 | Magnetism | Sanjay Sir", url: "https://youtu.be/xqzDBfL261k?si=IbkoyHrnd5YK3sgv" },
+                    { title: "Feb-05 | Heat & Thermodynamic | Chandan Sir", url: "https://youtu.be/qVkjRvCg134" },
+                    { title: "Feb-06 | Heat and Thermodynamic | Chandan Sir", url: "https://youtu.be/2Q5l0m7gDsg?si=EYG5e1MUUB5RLhdl" },
+                    { title: "Feb-07 | Heat and Thermodynamic | Chandan Sir", url: "https://youtu.be/0BhzC4dWA3c?si=TAV08IDFzLFqKnQl" },
+                    { title: "Feb-09 | Heat and Thermodynamic | Chandan Sir", url: "https://youtu.be/qX45alE7OKI?si=ZtF6U4TOVnOjFWG7" },
+                    { title: "Feb-10 | Heat and Thermodynamic | Chandan Sir", url: "https://youtu.be/NnqKr5a8YuA?si=I4b3Zt7UjRmUCi56" },
+                    { title: "Feb-11 | First Law Of Thermodynamics | Chandan Sir", url: "https://youtu.be/ndZQ7QYRxWM?si=hB7qtxpCKeFJJLN_" },
+                    { title: "Feb-12 | Heat and Thermodynamic | Roshan Sir", url: "https://youtu.be/_lW5De0zEkw?si=Ly0Xl-EFJ_tkPmbo" },
+                    { title: "Feb-13 | Heat and Thermodynamic | Roshan Sir", url: "https://youtu.be/2EbXg7ZLbIU?si=d2ylC0LPwIrrQyaA" },
+                    { title: "Feb-14 | Heat and Thermodynamic | Roshan Sir", url: "https://youtu.be/YQMNdNNbfc0?si=zsRU5ESzpsaRSoyk" },
+                    { title: "Feb-16 | Second Law of Thermodynamics | Roshan Sir", url: "https://youtu.be/R_c989-7D64?si=uuu9viMtQ0n946BP" },
+                    { title: "Feb-17 | Thermodynamics and Cycle Processes | Roshan Sir", url: "https://youtu.be/Dr139OebtYA?si=sRcyZiuaiAEEW7D7" },
+                    { title: "Feb-18 | Heat and Thermodynamic | Roshan Sir", url: "https://youtu.be/nGKzSvdQqOc?si=UIPdnhLrR8lPswAY" },
+                    { title: "Feb-19 | Heat and Thermodynamic | Roshan Sir", url: "https://youtu.be/I_BE1TRw3vw?si=YxLC2oRHX2tSCipA" },
+                    { title: "Feb-20 | Semi-Conductor | Roshan Sir", url: "https://youtu.be/ZxEK5liPWTs?si=cb1bvNxBLVSHqhCA" },
+                    { title: "Feb-21 | Types Of Semi-Conductor | Roshan Sir", url: "https://youtu.be/0xSJptrTVLY?si=HQEWkouMeVXZAFPO" },
+                    { title: "Feb-23 | Nuclear Physics and Radioactivity | Roshan Sir", url: "https://youtu.be/mTG9Grfbf3o?si=kD_wWilb4pF2MVFE" },
+                    { title: "Feb-24 | Modern Physic | Carbon Dating | Roshan Sir", url: "https://youtu.be/08DjES1QeCE?si=a6TDUNujHpW7kjNw" },
+                    { title: "Feb-25 | Modern Physic | Photons | Roshan Sir", url: "https://youtu.be/iANiimxD7_M?si=V3oaJwXt4hF9u6uS" },
+                    { title: "Feb-27 | Modern Physic | Photoelectric Effect | Roshan Sir", url: "https://youtu.be/bF66Ts68Tpk?si=QH6IjepRZ4NTLnev" },
+                    { title: "Feb-28 | Quantization of Energy | Roshan Sir", url: "https://youtu.be/Zdt41_Mvenk?si=x4NxBmvsg-na3kNe" },
+                    { title: "Mar-02 | Wave and Optics | Suraj Sir", url: "https://youtu.be/PBC2Air1n14?si=LEOIUFHqaDlkULhI" },
+                    { title: "Mar-04 | Interference | Suraj Sir", url: "https://youtu.be/N0BTGmbzXfs?si=3ZJfg9yk_O1F3PPY" },
+                    { title: "Mar-05 | Interference | Suraj Sir", url: "https://youtu.be/TMq1FmVUyiY?si=6A30FSn9iAPafOmw" },
+                    { title: "Mar-06 | Interference | Suraj Sir", url: "https://youtu.be/kTe3q6fqW54?si=4qg5m8nNT0MW4DyX" },
+                    { title: "Mar-07 | Interference | Suraj Sir", url: "https://youtu.be/fX64mMmFAJE?si=-UjWa91D_6uCRS_p" },
+                    { title: "Mar-09 | Diffraction and Refraction | Suraj Sir", url: "https://youtu.be/HSsBEq21l_E?si=ccVAtBDkVSVu3C-l" },
+                    { title: "Mar-11 | Diffraction and Interference | Suraj Sir", url: "https://youtu.be/RZTkLFZzB3k?si=y7_wGG3qgShVvNu0" },
+                    { title: "Mar-13 | Acoustic Doppler Effect | Suraj Sir", url: "https://youtu.be/eqE-4L8Z0yw?si=5zglD5yBRWSml3o2" },
+                    { title: "Mar-16 | Magnetism | Suraj Sir", url: "https://youtu.be/dyyImxNjbbA?si=YOEY4gA2JReOTz7s" },
+                    { title: "Mar-17 | Magnetism and EMI | Suraj Sir", url: "https://youtu.be/DNn1e2IwTIA?si=nfbgzfK3-5-ZjKv0" },
+                    { title: "Mar-18 | Alternating Current | Suraj Sir", url: "https://youtu.be/ch_8hzo7qU0?si=79r5Um3EFnU8HEg8" },
+                    { title: "Mar-19 | Modern Physic | Photoelectric | Roshan Sir", url: "https://youtu.be/Coz_x0fbnPY?si=SqXAzDtaeWimN9K9" },
+                    { title: "Mar-20 | Quantization of Energy | Roshan Sir", url: "https://youtu.be/RRDhmZ3Jlbw?si=tdMgls2VCKe0nR6s" },
+                    { title: "Mar-21 | Millikan's Oil Drop Experiment | Roshan Sir", url: "https://youtu.be/B3iKqCvdvFE?si=AmWqIxSkxqJAkWI-" },
+                    { title: "Mar-24 | Wave and Optics | Suraj Sir", url: "https://youtu.be/yvKOCJvJPhc?si=sL7fCBUYJV--hjlq" },
+                    { title: "Mar-25 | Mechanical Wave | Suraj Sir", url: "https://youtu.be/mRfrad7ALdg?si=uR11cjGu9Q_FWb7y" },
+                    { title: "Mar-26 | Wave and Optics | Suraj Sir", url: "https://youtu.be/FBhrkBAqBy4?si=sMP1dXn0UcKjHX3d" },
+                    { title: "Mar-28 | Mechanics | Suraj Sir", url: "https://youtu.be/exAbnwvh5FU" },
+                    { title: "Mar-30 | Important Que Discussion | Suraj Sir", url: "https://youtu.be/l0dR4bwoAfQ?si=hz0z-Nky64tnhrw_" },
+                    { title: "Apr-01 | Fluid Dynamics | Suraj Sir", url: "https://youtu.be/EpHLWCtw0Uo?si=7Eqhvi2HUZr-dEuv" },
+                    { title: "Apr-02 | Exam Preparation | Sanjay Sir", url: "https://youtu.be/dd2oqEC5S1w?si=-B3SIdk-AYoCsSKN" },
+                    { title: "Apr-03 | Alternating Current | Sanjay Sir", url: "https://youtu.be/M0ljTheyST8?si=du63Dp3BHfWygtKc" },
+                    { title: "Apr-04 | Alternating Current | Sanjay Sir", url: "https://youtu.be/5e5Eao2ejSk" },
+                    { title: "Apr-04 | Alternating Current (Part 2) | Sanjay Sir", url: "https://youtu.be/H6urpS3U0QQ?si=oBpb83Nqx9-ajIuN" },
+                    { title: "Apr-05 | Alternating Current | Sanjay Sir", url: "https://youtu.be/BdGZ4yws96E" },
+                    { title: "Apr-05 | Electrical Circuits | Sanjay Sir", url: "https://youtu.be/oV3J1vN0JYA?si=K29AW_qedUbHXECd" },
+                    { title: "Apr-07 | Magnetic Fields | Sanjay Sir", url: "https://youtu.be/hmSj9O7NAdk?si=c9kQTe6-KB3hH0OI" },
+                    { title: "Apr-08 | Mechanics | Sanjay Sir", url: "https://youtu.be/i2hjgtlflyE?si=caKR0j58D3vjfEql" },
+                    { title: "Apr-09 | Magnetic Field | Sanjay Sir", url: "https://youtu.be/YOFP4Y9ORu8?si=u4YnWn2u2ZrD_FYX" },
+                    { title: "Apr-10 | Doppler Effect | Sanjay Sir", url: "https://youtu.be/_kGteEnAgdM?si=kEWJx-8Zt4G3JZ0d" },
+                    { title: "Apr-11 | Mechanical Wave | Sanjay Sir", url: "https://youtu.be/DbbGY1PQU8g?si=UV_x2Iqe1dmQ7dUk" },
+                    { title: "Apr-15 | Mechanics | Sanjay Sir", url: "https://youtu.be/qdE5k9Se_Ug?si=6JxBFao7CnIyLcZL" },
+                    { title: "Apr-17 | Semiconductor | Sanjay Sir", url: "https://youtu.be/2n3MzhISCm4?si=PO4TP1TR9awOCrBx" },
+                    { title: "Apr-20 | Semiconductor | Sanjay Sir", url: "https://youtu.be/eWqKCuBpoU4?si=RMEXJEefQL8Hb8pb" }
+                ]
+            },
+            {
+                section: "📊 Graphical Questions (Suraj Sir)",
+                type: "youtube",
+                items: [
+                    { title: "Displacement-Time Graph 01", url: "https://youtu.be/at32RoF1Nro?si=lozeBbaPxNbSs8GL" },
+                    { title: "Displacement-Time Graph 02 (VVI)", url: "https://youtu.be/1yMXmZwIvtg?si=CCCBaQA9M5QdecPf" },
+                    { title: "Displacement-Time Graph 03 (Imp)", url: "https://youtu.be/XXBvO6-cksI?si=tfWmLAQZzoKiCpEd" },
+                    { title: "Displacement-Time Graph 04 (SHM)", url: "https://youtu.be/Uxv9YCizEzI?si=zO9uxkgeTwTJ6H_r" },
+                    { title: "Displacement-Time Graph 05 (SHM)", url: "https://youtu.be/fOcfS7kLg-g?si=qr5jbeVoHcTrok3m" },
+                    { title: "Millikan's Oil Drop Experiment 01", url: "https://youtu.be/Zont6loLTpI?si=aYoBceHbOl09STt-" },
+                    { title: "Millikan's Oil Drop Experiment 02", url: "https://youtu.be/m4ScfDzOOWE?si=Jg891l4H2E63T1TK" },
+                    { title: "Question-08", url: "https://youtu.be/RLtC7BxvMhw?si=2k8mDGNvix125GhX" },
+                    { title: "Question-09", url: "https://youtu.be/Ddzy3Q8WIOE?si=5FWgOSaUFUNV52lN" },
+                    { title: "Oil Drop Experiment (General)", url: "https://youtu.be/BROg6hYfNCU?si=CCXwsL-O67zzmvAy" },
+                    { title: "Fluid Question-01", url: "https://youtu.be/b_XjKVgx778?si=5PdMpPDZCekwJ8IQ" },
+                    { title: "Fluid Question-02", url: "https://youtu.be/t3Vkg7GTk-E?si=ccKf9RkxHi1_Z0QT" },
+                    { title: "Fluid Question-03", url: "https://youtu.be/NSsxgYzLjfw?si=TPUge353jJkBpek_" },
+                    { title: "Fluid Question-04", url: "https://youtu.be/PnllSqnlynM?si=EKelrZXXDVgP2pj_" },
+                    { title: "Fluid Question-05", url: "https://youtu.be/mixl6aNsJ5s?si=VlA9DIbKJZykt6h5" },
+                    { title: "Proton Question-01", url: "https://youtu.be/RmfQ-2VrNPM?si=RwO_-5uH6e00zLvd" },
+                    { title: "Proton Question-02", url: "https://youtu.be/AM8K1tGlmZA?si=EycuI9ewyJfTmwMm" },
+                    { title: "Proton Question-03", url: "https://youtu.be/kdFmzuQbYC8?si=tGd8JHZheswZbQxm" },
+                    { title: "Proton Question-04", url: "https://youtu.be/oySwbKgWo34?si=AC5R004TRvvt0ZFX" },
+                    { title: "Proton Question-05", url: "https://youtu.be/DoZBUkbkG0c?si=lbted9Wr8e9KFyCb" },
+                    { title: "Rotational Question-01", url: "https://youtu.be/_-t6_bOhuFY?si=arZVCHmtNte5OItW" },
+                    { title: "Rotational Question-02", url: "https://youtu.be/WPCOa41b3Co?si=yL_JlmEfAW6XqZM1" },
+                    { title: "Rotational Question-03", url: "https://youtu.be/U8uTaEzyxho?si=APYYcuLhOKSMDsTD" },
+                    { title: "Rotational Question-04", url: "https://youtu.be/U0pkbA6fYoc?si=OIKEAbYZ4V3F_aRM" },
+                    { title: "Rotational Question-05", url: "https://youtu.be/lDBK6qmc_S0?si=DvLrkASOyGSYcxjo" },
+                    { title: "Radioactivity Question-01", url: "https://youtu.be/DUjs8hOFhUM?si=hUKYwqGV_YjVJsSJ" },
+                    { title: "Radioactivity Question-02", url: "https://youtu.be/aWMFJv73fSI?si=fIhvgLfYIjI-mDjX" },
+                    { title: "Radioactivity Question-03", url: "https://youtu.be/eiPO6_Zw5CM?si=Wx2PfrAUM210mExB" },
+                    { title: "Quantization Question-01", url: "https://youtu.be/J0x5D4o2evA?si=pV-9pPmw3PJxK-Jw" },
+                    { title: "Quantization Question-02", url: "https://youtu.be/RQ13E8LJhRo?si=qbF0W1UlTthgb4sT" },
+                    { title: "Quantization Question-03", url: "https://youtu.be/QWvYdiuyKk4?si=2LnSkcDAgKVt8chW" },
+                    { title: "Quantization Question-04", url: "https://youtu.be/OEcisxqhYYk?si=dq1acytPhEiMF_HM" },
+                    { title: "Quantization Question-05", url: "https://youtu.be/zgSwEnlBgY8?si=gpr5RS4nb9JgqGoV" },
+                    { title: "Electrical Circuit Question-01", url: "https://youtu.be/0OVIhR8bLNM?si=jtijhrPHgnd90npf" },
+                    { title: "Electrical Circuit Question-02", url: "https://youtu.be/WhlpjnNctmE?si=jyrAQkpx7a5CUGRu" },
+                    { title: "Electrical Circuit Question-03", url: "https://youtu.be/QmbJ-qygXWs?si=9BiPymI7aOb851GD" },
+                    { title: "Electrical Circuit Question-04", url: "https://youtu.be/Z5U8_6Zz5Bc?si=BeNOMHevoFXG4-1q" },
+                    { title: "Electrical Circuit Question-05", url: "https://youtu.be/-kFHxQzU6Jg?si=bqPmtR4-QEr16pcR" },
+                    { title: "EMI Question-01", url: "https://youtu.be/nClce3LDLTw?si=xuoQA0z6Jg7DgMvj" },
+                    { title: "EMI Question-02", url: "https://youtu.be/1cPSmk88D20?si=ZrUI2HGpu_xKSoQV" },
+                    { title: "EMI Question-03", url: "https://youtu.be/-9FI9kKzx_I?si=NbGhWujrz7cd1WLQ" },
+                    { title: "EMI Question-04", url: "https://youtu.be/ckMPumnfMEY?si=8IEWCeXO3si0gXbx" },
+                    { title: "EMI Question-05", url: "https://youtu.be/wwWlP7tXWzE?si=iQfdrZhcwhN4W5L0" },
+                    { title: "Magnetic Field Question-01", url: "https://youtu.be/m-X9UNki-2Q?si=YqewLSg_iRbz9iHs" },
+                    { title: "Magnetic Field Question-02", url: "https://youtu.be/Rk8ykc4AFKM?si=LJBc3zRxIYgmrNpW" },
+                    { title: "Magnetic Field Question-03", url: "https://youtu.be/B4Q9d5Psi7c?si=t8fRBWBM1G7XK-a5" },
+                    { title: "Magnetic Field Question-04", url: "https://youtu.be/BoHlY269plI?si=A0U2lpQG3uQvdY1-" },
+                    { title: "Magnetic Field Question-05", url: "https://youtu.be/KGK2_yHJowE?si=EMUkM6koEYzVuepX" },
+                    { title: "Thermodynamics Question-01", url: "https://youtu.be/--onZdRCtik?si=73Sn3VPiXmG6qyvX" },
+                    { title: "Thermodynamics Question-02", url: "https://youtu.be/ptYItoPoj0E?si=dG4uwIJ5fy-OqsU6" },
+                    { title: "Thermodynamics Question-03", url: "https://youtu.be/pzGxiyIu7Uc?si=b7svsWmMimwuDOh4" },
+                    { title: "Thermodynamics Question-04", url: "https://youtu.be/U75FHrxlO4E?si=Xjf6xV5V6YCKslTu" },
+                    { title: "Thermodynamics Question-05", url: "https://youtu.be/q3vvtHuHN1M?si=45eOy9diisDuQvq-" },
+                    { title: "Thermodynamics Question-06", url: "https://youtu.be/iTF-aaYz3RU?si=oKe1jxbxoLhNdr9w" },
+                    { title: "Thermodynamics Question-07", url: "https://youtu.be/IB1zwojfdDY?si=tsynVT0qip8n42hF" },
+                    { title: "Doppler Effect Question-01", url: "https://youtu.be/Nkf-oJqbTP0?si=9bZV55q1gWa7L5cP" },
+                    { title: "Doppler Effect Question-02", url: "https://youtu.be/t00IApSjjrI?si=YxuzuyJTHKviIPGO" },
+                    { title: "Doppler Effect Question-03", url: "https://youtu.be/pZdCFchrDUU?si=Ckd5zEzW-cba4wOk" },
+                    { title: "Doppler Effect Question-04", url: "https://youtu.be/oRoFI9uIdUY?si=HHTsjsTJDsEZ-R6D" },
+                    { title: "Doppler Effect Question-05", url: "https://youtu.be/cAmNonFlFBo?si=llHqct-557FtH9XV" }
+                ]
+            },
+            {
+                section: "📝 Notes (Drive Links)",
+                type: "drive",
+                items: [
+                    { title: "Physics Notes (Folder)", url: "https://drive.google.com/drive/folders/1GBeZUWCUp4lIuZ7DvdGlL09rQiWSfDPh?usp=sharing" },
+                    { title: "NG Physics 2082 (Folder)", url: "https://drive.google.com/drive/folders/1PWU14Oau6WvYNJjK6MrDF6L9YGM1HUvC?usp=drive_link" },
+                    { title: "Physics Notes (Aug 30)", url: "https://drive.google.com/drive/folders/1HFexefBs6egO1-KeBgwnhkuBxlr8pT2A?usp=sharing" }
+                ]
+            },
+            {
+                section: "💬 Group Link",
+                type: "whatsapp",
+                items: [
+                    { title: "Join Whatsapp Group", url: "https://chat.whatsapp.com/ISQXMepQdHAA5xr9bqXk3v" }
+                ]
+            }
+        ];
+
+        const app = document.getElementById('app');
+        const searchInput = document.getElementById('searchInput');
+
+        function getTypeStyle(type) {
+            if (type === 'youtube') return { class: 'type-youtube', label: 'YouTube 📺' };
+            if (type === 'drive') return { class: 'type-drive', label: 'Drive 📂' };
+            if (type === 'whatsapp') return { class: 'type-whatsapp', label: 'WhatsApp 💬' };
+            return { class: '', label: 'Link 🔗' };
+        }
+
+        function extractDate(title) {
+            // Extracts date format like "Jan-07" or "Nov 27"
+            const match = title.match(/([A-Za-z]{3})[\s-]?(\d{1,2})/);
+            if (match) return `${match[1]} ${match[2]}`;
+            return null;
+        }
+
+        function render(filter = "") {
+            app.innerHTML = "";
+            const lowerFilter = filter.toLowerCase();
+
+            data.forEach(section => {
+                const filteredItems = section.items.filter(item => 
+                    item.title.toLowerCase().includes(lowerFilter) || 
+                    section.section.toLowerCase().includes(lowerFilter)
+                );
+
+                if (filteredItems.length > 0) {
+                    const sectionHeader = document.createElement('div');
+                    sectionHeader.className = 'section-header';
+                    sectionHeader.innerHTML = `
+                        <div class="section-title">
+                            ${section.section}
+                            <span class="section-count">${filteredItems.length}</span>
+                        </div>
+                    `;
+                    app.appendChild(sectionHeader);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'grid';
+
+                    filteredItems.forEach(item => {
+                        const styleInfo = getTypeStyle(section.type);
+                        const date = extractDate(item.title);
+                        // Clean up title slightly for better display
+                        let cleanTitle = item.title;
+
+                        const card = document.createElement('a');
+                        card.href = item.url;
+                        card.target = "_blank";
+                        card.className = `card ${styleInfo.class}`;
+                        
+                        card.innerHTML = `
+                            <div class="card-type-strip"></div>
+                            <div class="card-content">
+                                ${date ? `<div class="card-date">${date}</div>` : ''}
+                                <div class="card-title">${cleanTitle}</div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="badge">${styleInfo.label}</span>
+                                <span class="open-icon">Open ↗</span>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+
+                    app.appendChild(grid);
+                }
+            });
+
+            if (app.innerHTML === "") {
+                app.innerHTML = `<div style="text-align:center; padding: 4rem; color: #94a3b8;">
+                    <p style="font-size:1.2rem">No resources found for "${filter}"</p>
+                    <p style="font-size:0.9rem; margin-top:0.5rem">Try searching for a chapter name (e.g. 'Optics') or date.</p>
+                </div>`;
+            }
+        }
+
+        render();
+
+        searchInput.addEventListener('input', (e) => {
+            render(e.target.value);
+        });
+
+    </script>
+</body>
+</html>
